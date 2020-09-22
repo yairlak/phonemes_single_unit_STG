@@ -22,6 +22,7 @@ for index, row in df2.iterrows():
 
 df = df.astype({'Speaker': 'int32'})
 # Plot CV properties
+# sns.set(rc={'axes.facecolor':'white', 'figure.facecolor':'white'})
 df_temp = df.loc[(df['consonant_vowel'] == 'consonant') & (df['Measure'].isin(['consonant duration', 'vowel duration']))]
 fig, ax = plt.subplots(figsize=(10,10))
 sns.boxplot(x="Measure", y="Duration (msec)", hue='Speaker', data=df_temp, ax=ax)
@@ -39,6 +40,7 @@ fig, ax = plt.subplots(figsize=(10,10))
 sns.boxplot(x="Measure", y="Duration (msec)", hue='Speaker', data=df_temp, ax=ax)
 # sns.swarmplot(x="measure", y="value", hue='speaker', data=df, color=".25", ax=ax)
 # Cosmetics and save
+ax.set_xticklabels(['Vowel'])
 ax.set_xlabel('')
 sns.set(font_scale=1)
 plt.savefig('../figures/V_acoustic_properties.png')
