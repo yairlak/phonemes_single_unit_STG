@@ -8,7 +8,7 @@ rng(params.seed)
 settings = load_phonemes(settings);
 
 %%
-path2wavfiles = fullfile('..', 'data', 'phoneme_stimuli');
+path2wavfiles = fullfile('..', 'data', 'phoneme_stimuli_cut');
 
 %% PHONEMES
 for ph = 1:length(settings.phonemes)
@@ -18,13 +18,14 @@ end
 num_phonemes = length(settings.phonemes);
 
 %% SPECTROGRAMS
-
 for i_ph = 1:num_phonemes
     for i_speaker = 1:3
         ph_name_IPA = settings.ph_name_to_IPA(settings.phonemes{i_ph});
         fprintf('Phone %i, speaker %i\n', i_ph, i_speaker)
         fname_wav = sprintf('%i.wav', settings.phonemes_serial_number(i_ph) + (i_speaker-1)*27);
-        [y, fs] = audioread(fullfile(path2wavfiles, fname_wav));
+        new_fname = ['ph_', ph_name_IPA, '_speaker_',  num2str(i_speaker), '_serial_num_', fname_wav];
+       
+        [y, fs] = audioread(fullfile(path2wavfiles, new_fname));
         
         fs_low = 16000;
         y_downsampled = resample(y,fs_low, fs);
