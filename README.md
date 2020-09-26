@@ -5,3 +5,6 @@ Lakretz, Y., Ossmy, O., Friedmann, N., Mukamel, R., & Fried, I. (2020). ["Single
 
 * Wav files for the original phoneme stimuli used in the experiments can be found under [/data/phoneme_stimuli](https://github.com/yairlak/phonemes_single_unit_STG/tree/master/data/phoneme_stimuli)  
 * The corresponding waveforms and spectrograms are in [/figures/spectrograms/](https://github.com/yairlak/phonemes_single_unit_STG/tree/master/figures/spectrograms)
+
+## Basic statistics of the auditory stimuli
+![alt text](https://github.com/yairlak/phonemes_single_unit_STG/blob/master/figures/CV_acoustic_properties.png?raw=true)
