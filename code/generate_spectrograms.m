@@ -8,7 +8,7 @@ rng(params.seed)
 settings = load_phonemes(settings);
 
 %%
-path2wavfiles = fullfile('..', 'data', 'phoneme_stimuli_cut');
+path2wavfiles = fullfile('..', 'data', 'phoneme_stimuli');
 
 %% PHONEMES
 for ph = 1:length(settings.phonemes)
@@ -22,9 +22,12 @@ for i_ph = 1:num_phonemes
     for i_speaker = 1:3
         ph_name_IPA = settings.ph_name_to_IPA(settings.phonemes{i_ph});
         fprintf('Phone %i, speaker %i\n', i_ph, i_speaker)
-        fname_wav = sprintf('%i.wav', settings.phonemes_serial_number(i_ph) + (i_speaker-1)*27);
+        fname_wav = sprintf('%i_.wav', settings.phonemes_serial_number(i_ph) + (i_speaker-1)*27);
         new_fname = ['ph_', ph_name_IPA, '_speaker_',  num2str(i_speaker), '_serial_num_', fname_wav];
-       
+        if ~isfile(fullfile(path2wavfiles, new_fname))
+            continue
+        end
+           
         [y, fs] = audioread(fullfile(path2wavfiles, new_fname));
         
         fs_low = 16000;
@@ -42,7 +45,7 @@ for i_ph = 1:num_phonemes
         title(['Phoneme name - ', ph_name_IPA], 'fontsize', 16)
         subplot(2,1,2); 
         
-        [S, F, T] = spectrogram(y_downsampled,80,40,2048,fs_low, 'yaxis');
+        [S, F, T] = spectrogram(y_downsampled,80, 79, 2048,fs_low, 'yaxis');
         S = abs(S);                         % compute magnitude spectrum 
         S = S/max(max(S));                  % normalize magntide spectrum
         S = 20*log10(S);                    % compute power spectrum in dB    
