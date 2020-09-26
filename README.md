@@ -9,7 +9,7 @@ Wav files for the original phoneme stimuli used in the experiments can be found 
 ## Waveform and Spectrograms of the Auditory Stimuli
 The corresponding waveforms and spectrograms can be found here: [/figures/spectrograms/](https://github.com/yairlak/phonemes_single_unit_STG/tree/master/figures/spectrograms)
 
-Below is an example for the waveform and spectogram of one of the phonemes '%CA%83':
+Below is an example for the waveform and spectogram for the phonemes /S/:
 ![alt text](https://github.com/yairlak/phonemes_single_unit_STG/blob/master/figures/spectrograms/spec_speaker_3_%CA%83.png?raw=true)
 
 ## Basic Statistics of the Auditory Stimuli
